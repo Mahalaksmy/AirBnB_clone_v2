@@ -69,3 +69,7 @@ def reload(self):
     Base.metadata.create_all(self.__engine)
     self.__session = scoped_session(sessionmaker(bind=self.__engine,
                                     expire_on_commit=False))()
+
+def close(self):
+        """This a public method close"""
+        self.__session.close()
